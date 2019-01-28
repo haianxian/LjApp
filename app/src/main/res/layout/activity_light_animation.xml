@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+        <FrameLayout
+            android:id="@+id/dynamic_light_layout"
+            android:layout_width="90dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_dynamic_count">
+
+            <TextView
+                android:id="@+id/dynamic_light_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@mipmap/icon_dynamic_light_none"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="点亮"
+                android:textColor="#9F9FA3"
+                android:textSize="12sp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/light_button_view"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center">
+
+            <com.lj.app.tools.utils.DotsView
+                android:id="@+id/vDotsView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

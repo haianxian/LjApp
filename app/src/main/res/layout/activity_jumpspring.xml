@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/playlist_tip_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="44dp">
+
+        <ImageView
+            android:id="@+id/add_playlist_tips_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="8dp"
+            android:src="@mipmap/add_playlist_tips" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/hellosay_tv"
+        android:layout_width="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:drawableLeft="@mipmap/hi"
+        android:background="@drawable/bg_gradient_round_rectangle_r25"
+        android:text="不知道说什么好？点我试试"
+        android:drawablePadding="6dp"
+        android:textSize="12sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content" />
+</LinearLayout>

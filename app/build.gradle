@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin:'org.greenrobot.greendao'
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.lj.app"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    // 野狗相关(如果出现文件重复导致的编译错误)
+    packagingOptions {
+        exclude 'META-INF/services/com.fasterxml.jackson.core.ObjectCodec'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.JsonFactory'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.properties'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-core-android/pom.xml'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-core-android/pom.properties'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-auth-android/pom.xml'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-auth-android/pom.properties'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
+    }
+
+    dexOptions {
+        preDexLibraries false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+//    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    //添加GreenDao及数据库database的依赖
+    compile 'org.greenrobot:greendao:3.2.2'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.wilddog.client:wilddog-sync-android:2.3.7'
+    compile 'com.wilddog.client:wilddog-auth-android:2.0.7'
+    compile 'com.android.support:design:26.0.0'
+    apply plugin: 'maven'
+    apply plugin: 'announce'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.facebook.rebound:rebound:0.3.8'
+}
+
+
+
+/**
+ * 新建GreenDao的依赖作用域
+ */
+greendao{
+    targetGenDir 'src/main/java' //固定格式：作用域代码文件夹
+    daoPackage 'com.lj.app.db.gen'  //固定格式：作用域代码指定的包名，根据自己Model的包名加上 .dao即可
+    schemaVersion 1              //固定格式：版本号
+}
