@@ -27,18 +27,21 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".view.animation.AnimationActivity"></activity>
+        <activity android:name=".view.animation.AnimationActivity">
+
+
+        </activity>
         <activity android:name=".view.animation.LightAnimationActivity"> </activity>
         <activity android:name=".view.animation.StartSpreadoutActivity"></activity>
         <activity android:name=".view.animation.JumpSpringActivity"></activity>
         <activity android:name=".DialogActivity"
             android:theme="@android:style/Theme.Translucent"></activity>
         <activity android:name=".view.animation.BezierAnimationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
 
 
         </activity>
@@ -64,6 +67,35 @@
 
 
         </activity>
+        <!--popWindow显示位置 距离屏幕左右间距相同-->
+        <activity android:name="com.lj.app.PopWindowTest2">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <!--ScrollView根据高度自适应 如果超过一定高度则scrollview上下可以滑动-->
+        <activity android:name="com.lj.app.AutoFitScrollViewActivity">
+        </activity>
+        <activity android:name="com.lj.app.view.animation.HeadLoopActivity">
+
+        </activity>
+        <activity android:name="com.lj.app.view.animation.MoveViewActivity">
+
+        </activity>
+        <activity android:name="com.lj.app.sensor.ImageGrivitySensorActivity">
+        </activity>
+        <activity android:name="com.lj.app.view.rv.TestRVItemDecoration">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

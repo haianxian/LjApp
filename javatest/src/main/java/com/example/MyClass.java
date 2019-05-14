@@ -33,5 +33,56 @@ public class MyClass {
 //        a.add("2");
 //        Random r = new Random();
 //        System.out.println(r.nextInt(2));
+
+
+
+
+
+//        List<String> all = new ArrayList<>();
+//        all.add("1");
+//        all.add("2");
+//        all.add("3");
+//        all.add("4");
+//        all.add("5");
+//
+//        List<String> unList = new ArrayList<>();
+//        unList.add("2");
+//        unList.add("3");
+//
+//        Set<String> set = new HashSet<>();
+//        for(int i=0;i < all.size();i++){
+//            String str = all.get(i);
+//            boolean isAdd  = true;
+//            for(int j=0; j< unList.size();j++){
+//                String str1 = unList.get(j);
+//                if(str.equals(str1)){
+//                    isAdd = false;
+//                    System.out.println("1111>>>>"+str);
+//                    break;
+//                }
+//            }
+//            System.out.println("2222>>>>");
+//            if(isAdd){
+//                set.add(str);
+//            }
+//        }
+//        System.out.println("3333>>>>"+set);
+//       int sendMsgCount=1;
+//       int receMsgCount=0;
+//       int totalMsgCount = 1;
+//
+//        if(sendMsgCount >= 1 && receMsgCount>=1){
+//            if(totalMsgCount > 5){
+//              System.out.println("aaaa");
+//            }
+//        }
+        for(int i=0; i< 10;i++){
+            System.out.println("aaaa");
+            if(i == 1){
+                return;
+            }
+            System.out.println("bbbb");
+        }
+        System.out.println("cccc");
     }
 }

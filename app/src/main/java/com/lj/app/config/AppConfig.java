@@ -9,4 +9,5 @@ public class AppConfig {
 
     private static String DEV_URL = "http://192.168.1n.222";
     public static String CURRENT_URL = DEV_URL;
+    public static String CURRENT_IMG_URL = DEV_URL;
 }

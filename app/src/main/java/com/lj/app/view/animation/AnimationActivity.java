@@ -21,6 +21,8 @@ public class AnimationActivity extends AppCompatActivity{
     Button jumpBtn;
     Button bezierBtn;
     Button circlePercentBtn;
+    Button headLoopBtn;
+    Button moveViewBtn;
     public static void open(Context context){
         Intent it = new Intent(context,AnimationActivity.class);
         context.startActivity(it);
@@ -40,6 +42,8 @@ public class AnimationActivity extends AppCompatActivity{
         jumpBtn = findViewById(R.id.animation_jump_btn);
         bezierBtn = findViewById(R.id.animation_bezier_btn);
         circlePercentBtn = findViewById(R.id.circle_percent_btn);
+        headLoopBtn = findViewById(R.id.head_loop_btn);
+        moveViewBtn = findViewById(R.id.move_view_btn);
     }
 
     private void setView(){
@@ -72,6 +76,18 @@ public class AnimationActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Intent it = new Intent(AnimationActivity.this, CirclePercentActivity.class);
                 startActivity(it);
+            }
+        });
+        headLoopBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HeadLoopActivity.open(AnimationActivity.this);
+            }
+        });
+        moveViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoveViewActivity.open(AnimationActivity.this);
             }
         });
     }
