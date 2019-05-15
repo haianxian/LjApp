@@ -64,7 +64,11 @@
         </activity>
         <!--倒计时-->
         <activity android:name="com.lj.app.DJSTimeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <!--popWindow显示位置 距离屏幕左右间距相同-->
@@ -88,11 +92,7 @@
         <activity android:name="com.lj.app.sensor.ImageGrivitySensorActivity">
         </activity>
         <activity android:name="com.lj.app.view.rv.TestRVItemDecoration">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 
