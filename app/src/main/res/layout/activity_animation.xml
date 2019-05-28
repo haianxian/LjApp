@@ -38,4 +38,9 @@
         android:layout_width="wrap_content"
         android:text="moveView"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/sensor_move_img_btn"
+        android:layout_width="wrap_content"
+        android:text="图片跟随传感器移动"
+        android:layout_height="wrap_content" />
 </LinearLayout>

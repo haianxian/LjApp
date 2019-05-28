@@ -3,6 +3,9 @@ package com.lj.app.sensor;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -19,100 +22,89 @@ public class ImageGrivitySensorActivity extends AppCompatActivity implements Sen
 
     private ImageView imageIv;
     SensorManager sensorManager;
-    private static int LEFT = 0;
-    private static int RIGHT = 1;
-    private static int TOP = 2;
-    private static int BOTTOM = 3;
-    private static int LEFT_TOP = 4;
-    private static int LEFT_BOTTOM = 5;
-    private static int RIGHT_TOP = 6;
-    private static int RIGHT_BOTTOM = 7;
-    private static int ORIENTATION = -1;
-    private long endTime = 0;
-    private int lastX;
-    private int lastY;
+    Sensor sensor;
+    private float lastX;
+    private float lastY;
+    private boolean animFinish = true;
+
+    public static void open(Context context){
+        Intent it = new Intent(context,ImageGrivitySensorActivity.class);
+        context.startActivity(it);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imagegrivity_sensor);
         imageIv = findViewById(R.id.image_iv);
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        initSensor();
+        registerSensor();
+    }
 
-        sensorManager.registerListener(this,
-                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-                SensorManager.SENSOR_DELAY_NORMAL);
+    private void initSensor() {
+        sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+    }
+
+    private void registerSensor(){
+        if(sensorManager != null && sensor != null){
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+            LogUtil.i("传感器方向", "注册监听");
+        }
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            int currX = (int) event.values[SensorManager.DATA_X];
-            int currY = (int) event.values[SensorManager.DATA_Y];
-            if (currX < 0 && currY == 0) {
-                //右移动
-                ORIENTATION = RIGHT;
-            } else if (currX > 0 && currY == 0) {
-                // 左移动
-                ORIENTATION = LEFT;
-            } else if (currX == 0 && currY < 0) {
-                // 上移动
-                ORIENTATION = TOP;
-            } else if (currX == 0 && currY > 0) {
-                // 下移动
-                ORIENTATION = BOTTOM;
-            } else if (currX < 0 && currY < 0) {
-                //右上移动
-                ORIENTATION = RIGHT_TOP;
-            } else if (currX < 0 && currY > 0) {
-                // 右下移动
-                ORIENTATION = RIGHT_BOTTOM;
-            } else if (currX > 0 && currY > 0) {
-                // 左下移动
-                ORIENTATION = LEFT_BOTTOM;
-            } else if (currX > 0 && currY < 0) {
-                // 左上移动
-                ORIENTATION = LEFT_TOP;
-            }
-            LogUtil.i("传感器方向", "currX: " + currX + "currY: " + currY+"lastX: "+lastX);
-            if (System.currentTimeMillis() - endTime > 0.2*1000L) {
-                setAnimation(currX, currY);
-            }
+            float currX = -event.values[SensorManager.DATA_X];
+            float currY = event.values[SensorManager.DATA_Y];
 
+            LogUtil.i("传感器方向", "currX: " + currX + "currY: " + currY+"lastX: "+lastX);
+            if(animFinish){
+                setAnimation(4*currX, 4*currY);
+            }
         }
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
-
-    private void setAnimation(final int x, final int y) {
-        AnimatorSet set = new AnimatorSet();
+    // 图片跟随传感器移动
+    private void setAnimation(final float x, final float y) {
+        animFinish = false;
+        final AnimatorSet set = new AnimatorSet();
         ObjectAnimator transX = ObjectAnimator.ofFloat(imageIv, "translationX", lastX, x);
-        transX.setDuration(200);
+        transX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                lastX = (float) animation.getAnimatedValue("translationX");
+            }
+        });
+        transX.setDuration(500);
 
         ObjectAnimator transY = ObjectAnimator.ofFloat(imageIv, "translationY", lastY, y);
-        transY.setDuration(200);
+        transY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                lastY = (float) animation.getAnimatedValue("translationY");
+            }
+        });
+        transY.setDuration(500);
         set.playTogether(transX, transY);
         set.start();
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-
+                animFinish = false;
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                endTime = System.currentTimeMillis();
-                lastX = x;
-                lastY = y;
-
+//                lastX = x;
+//                lastY = y;
+                animFinish = true;
             }
 
             @Override
             public void onAnimationCancel(Animator animation) {
-
+                animFinish = true;
             }
 
             @Override
@@ -121,5 +113,24 @@ public class ImageGrivitySensorActivity extends AppCompatActivity implements Sen
             }
         });
 
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    // 取消注册监听
+    public void unRegisterSensor() {
+        if (sensorManager != null) {
+            sensorManager.unregisterListener(this);
+            LogUtil.i("传感器方向", "取消注册监听");
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unRegisterSensor();
     }
 }
