@@ -30,12 +30,14 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
+        <!--thumb_seekbar_white 阴影占了1dp 所以控件要大1dp app:rsb_thumb_size="49dp" app:rsb_thumb_height="29dp"-->
         <com.lj.app.tools.utils.rangeseekbar.RangeSeekBar
             android:id="@+id/other"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:background="#FFFFFF"
             app:rsb_mode="range"
             app:rsb_progress_height="2dp"
             app:rsb_progress_color="#8d75da"
