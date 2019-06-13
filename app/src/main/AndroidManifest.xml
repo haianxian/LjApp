@@ -28,11 +28,11 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".view.animation.AnimationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
 
         </activity>
         <activity android:name=".view.animation.LightAnimationActivity"> </activity>
@@ -68,7 +68,11 @@
         </activity>
         <!--倒计时-->
         <activity android:name="com.lj.app.DJSTimeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <!--popWindow显示位置 距离屏幕左右间距相同-->
@@ -89,12 +93,23 @@
         <activity android:name="com.lj.app.view.animation.MoveViewActivity">
 
         </activity>
+
+        <activity android:name="com.lj.app.view.animation.PingFenViewActivity">
+
+        </activity>
+
         <activity android:name="com.lj.app.sensor.ImageGrivitySensorActivity">
         </activity>
         <activity android:name="com.lj.app.view.rv.TestRVItemDecoration">
 
         </activity>
+        <activity android:name="com.lj.app.HKActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
 
     </application>
 

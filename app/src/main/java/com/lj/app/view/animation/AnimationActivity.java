@@ -25,6 +25,7 @@ public class AnimationActivity extends AppCompatActivity{
     Button headLoopBtn;
     Button moveViewBtn;
     Button sensorMoveImgBtn;
+    Button pingfenView;
     public static void open(Context context){
         Intent it = new Intent(context,AnimationActivity.class);
         context.startActivity(it);
@@ -47,6 +48,7 @@ public class AnimationActivity extends AppCompatActivity{
         headLoopBtn = findViewById(R.id.head_loop_btn);
         moveViewBtn = findViewById(R.id.move_view_btn);
         sensorMoveImgBtn = findViewById(R.id.sensor_move_img_btn);
+        pingfenView = findViewById(R.id.pingfen_view_btn);
     }
 
     private void setView(){
@@ -97,6 +99,12 @@ public class AnimationActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 ImageGrivitySensorActivity.open(AnimationActivity.this);
+            }
+        });
+        pingfenView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PingFenViewActivity.open(AnimationActivity.this);
             }
         });
     }

@@ -44,6 +44,27 @@ public class Utils {
         return bitmap;
     }
 
+    public static Bitmap drawableToBitmap(int width,int height, Drawable drawable) {
+        Bitmap bitmap = null;
+//        if (drawable instanceof BitmapDrawable) {
+//            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+//            bitmap = bitmapDrawable.getBitmap();
+//            if (bitmap != null && bitmap.getHeight() > 0) {
+//                Matrix matrix = new Matrix();
+//                float scaleHeight = height * 1.0f / bitmapDrawable.getIntrinsicHeight();
+//                float scaleWidth = width*1.0f/bitmapDrawable.getIntrinsicWidth();
+//                matrix.postScale(scaleWidth, scaleHeight);
+//                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+//                return bitmap;
+//            }
+//        }
+        bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bitmap;
+    }
+
     /**
      * draw 9Path
      *

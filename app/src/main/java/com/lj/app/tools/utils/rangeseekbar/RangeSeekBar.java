@@ -100,9 +100,9 @@ public class RangeSeekBar extends View {
     private Paint paint = new Paint();
     private RectF backgroundLineRect = new RectF();
     private RectF foregroundLineRect = new RectF();
-    private SeekBar leftSB;
-    private SeekBar rightSB;
-    private SeekBar currTouchSB;
+    private SeekBar1 leftSB;
+    private SeekBar1 rightSB;
+    private SeekBar1 currTouchSB;
     private OnRangeChangedListener callback;
 
 
@@ -116,10 +116,10 @@ public class RangeSeekBar extends View {
         initPaint();
 
         if (seekBarMode == SEEKBAR_MODE_RANGE) {
-            leftSB = new SeekBar(this, attrs, true);
-            rightSB = new SeekBar(this, attrs, false);
+            leftSB = new SeekBar1(this, attrs, true);
+            rightSB = new SeekBar1(this, attrs, false);
         } else {
-            leftSB = new SeekBar(this, attrs, true);
+            leftSB = new SeekBar1(this, attrs, true);
             rightSB = null;
         }
 
@@ -762,11 +762,11 @@ public class RangeSeekBar extends View {
      * if is single mode, please use it to get the SeekBar
      * @return left seek bar
      */
-    public SeekBar getLeftSeekBar(){
+    public SeekBar1 getLeftSeekBar(){
         return leftSB;
     }
 
-    public SeekBar getRightSeekBar(){
+    public SeekBar1 getRightSeekBar(){
         return rightSB;
     }
 
