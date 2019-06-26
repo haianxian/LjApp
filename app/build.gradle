@@ -77,6 +77,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.1.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
     compile 'jp.wasabeef:glide-transformations:3.0.1'
+    //    选择放映单滑动指示器
+    compile 'com.github.hackware1993:MagicIndicator:1.5.0'
 }
 
 
