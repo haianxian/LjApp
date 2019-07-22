@@ -10,6 +10,8 @@ import android.widget.Button;
 
 import com.lj.app.R;
 import com.lj.app.sensor.ImageGrivitySensorActivity;
+import com.lj.app.view.BezierView.SecondBezierActivity;
+import com.lj.app.view.loadingview.LoadingViewActivity;
 
 /**
  * Created by 13717 on 2018/11/6.
@@ -26,6 +28,8 @@ public class AnimationActivity extends AppCompatActivity{
     Button moveViewBtn;
     Button sensorMoveImgBtn;
     Button pingfenView;
+    Button loadViewBtn;
+    Button bezierViewBtn;
     public static void open(Context context){
         Intent it = new Intent(context,AnimationActivity.class);
         context.startActivity(it);
@@ -49,6 +53,8 @@ public class AnimationActivity extends AppCompatActivity{
         moveViewBtn = findViewById(R.id.move_view_btn);
         sensorMoveImgBtn = findViewById(R.id.sensor_move_img_btn);
         pingfenView = findViewById(R.id.pingfen_view_btn);
+        loadViewBtn = findViewById(R.id.loadview_view_btn);
+        bezierViewBtn = findViewById(R.id.bezier_view_btn);
     }
 
     private void setView(){
@@ -105,6 +111,18 @@ public class AnimationActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 PingFenViewActivity.open(AnimationActivity.this);
+            }
+        });
+        loadViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoadingViewActivity.open(AnimationActivity.this);
+            }
+        });
+        bezierViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SecondBezierActivity.open(AnimationActivity.this);
             }
         });
     }

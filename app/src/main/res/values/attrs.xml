@@ -114,4 +114,10 @@
     <declare-styleable name="customView">
         <attr name="background_color" format="color"></attr>
     </declare-styleable>
+    <!--colorChangeTextView-->
+    <declare-styleable name="ColorChangeTextView">
+        <attr name="origin_color" format="color"/>
+        <attr name="change_color" format="color"/>
+        <attr name="text_size" format="dimension"/>
+    </declare-styleable>
 </resources>

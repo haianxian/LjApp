@@ -21,4 +21,9 @@
         android:gravity="center"
         android:background="#eeeeee"
         android:layout_height="50dp" />
+    <TextView
+        android:id="@+id/tv_set_color"
+        android:layout_width="wrap_content"
+        android:text="点击TextView变色"
+        android:layout_height="wrap_content" />
 </LinearLayout>

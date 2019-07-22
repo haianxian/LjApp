@@ -113,13 +113,29 @@
         </activity>
         <!--自定义View-->
         <activity android:name=".view.customview.CustomViewActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".view.customview.JCView">
+        </activity>
+        <activity android:name="com.lj.app.view.viewpagertitlecolorchnage.ViewPagerColorChangeActivity">
+
+
+
+        </activity>
+        <activity android:name="com.lj.app.view.loadingview.LoadingViewActivity">
+
+
+        </activity>
+        <activity android:name="com.lj.app.view.BezierView.SecondBezierActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".view.customview.JCView">
         </activity>
     </application>
 

@@ -49,4 +49,16 @@
         android:layout_width="wrap_content"
         android:text="平分View"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/loadview_view_btn"
+        android:layout_width="wrap_content"
+        android:text="加载动画"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/bezier_view_btn"
+        android:layout_width="wrap_content"
+        android:text="bezier曲线实例"
+        android:layout_height="wrap_content"
+        />
 </LinearLayout>
