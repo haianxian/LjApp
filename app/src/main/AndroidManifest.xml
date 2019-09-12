@@ -30,11 +30,11 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".view.animation.AnimationActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".view.animation.LightAnimationActivity"></activity>
@@ -131,12 +131,21 @@
 
         </activity>
         <activity android:name="com.lj.app.view.BezierView.SecondBezierActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
+
+        <activity android:name="com.lj.app.view.scaleview.ViewScaleActiivty">
+
+        </activity>
+
+        <activity android:name="com.lj.app.ThirdActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+            </activity>
     </application>
 
 </manifest>

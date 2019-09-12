@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_wg_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/bg_circle_color_grandient_a16dd7_7c77e2"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="#FFFFFFFF"
+            android:text="微光账号12668"
+            android:textSize="9sp" />
+    </LinearLayout>
+
+    <com.lj.app.view.scaleview.VlightValueView
+        android:layout_width="match_parent"
+        android:id="@+id/vlightvalue_root_view"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        />
+</FrameLayout>

@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.lj.app.custom.widget.MyButton;
@@ -25,6 +27,12 @@ public class ThirdActivity extends AppCompatActivity {
     LinearLayout ll;
     @BindView(R.id.edittext)
     EditText editText;
+    @BindView(R.id.linear)
+    LinearLayout linearLayout;
+    @BindView(R.id.image)
+    ImageView imageView;
+    @BindView(R.id.btn)
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +53,20 @@ public class ThirdActivity extends AppCompatActivity {
 //                Toast.makeText(ThirdActivity.this, "setOnClickListener", Toast.LENGTH_LONG).show();
             }
         });
+        imageView.setImageResource(R.mipmap.ic_launcher);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.invalidate();
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        imageView.setImageResource(R.mipmap.ic_launcher);
+//                    }
+//                },2000);
 
+            }
+        });
 
     }
 

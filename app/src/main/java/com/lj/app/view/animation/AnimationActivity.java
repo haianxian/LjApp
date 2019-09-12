@@ -12,6 +12,7 @@ import com.lj.app.R;
 import com.lj.app.sensor.ImageGrivitySensorActivity;
 import com.lj.app.view.BezierView.SecondBezierActivity;
 import com.lj.app.view.loadingview.LoadingViewActivity;
+import com.lj.app.view.scaleview.ViewScaleActiivty;
 
 /**
  * Created by 13717 on 2018/11/6.
@@ -30,6 +31,7 @@ public class AnimationActivity extends AppCompatActivity{
     Button pingfenView;
     Button loadViewBtn;
     Button bezierViewBtn;
+    Button scaleViewBtn;
     public static void open(Context context){
         Intent it = new Intent(context,AnimationActivity.class);
         context.startActivity(it);
@@ -55,6 +57,7 @@ public class AnimationActivity extends AppCompatActivity{
         pingfenView = findViewById(R.id.pingfen_view_btn);
         loadViewBtn = findViewById(R.id.loadview_view_btn);
         bezierViewBtn = findViewById(R.id.bezier_view_btn);
+        scaleViewBtn = findViewById(R.id.view_point_scale_btn);
     }
 
     private void setView(){
@@ -123,6 +126,12 @@ public class AnimationActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 SecondBezierActivity.open(AnimationActivity.this);
+            }
+        });
+        scaleViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewScaleActiivty.open(AnimationActivity.this);
             }
         });
     }

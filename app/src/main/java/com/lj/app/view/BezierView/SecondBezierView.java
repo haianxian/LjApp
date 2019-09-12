@@ -2,6 +2,7 @@ package com.lj.app.view.BezierView;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
@@ -84,6 +85,26 @@ public class SecondBezierView extends View {
         canvas.drawLine(mFlagPointX,mFlagPointY,mEndPointX,mEndPointY,flagPaint);
 
         canvas.drawPath(mPath,bezierPaint);
+
+        //画直线
+        mPath.moveTo(200,200);
+        mPath.lineTo(300,300);
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
+        canvas.drawPath(mPath,paint);
+        //画三阶贝塞尔曲线
+        mPath.moveTo(400,400);
+        //(x1,y1) 为控制点，(x2,y2)为控制点，(x3,y3) 为结束点
+        mPath.cubicTo(500,500,550,550,600,600);
+        Paint p = new Paint();
+        p.setColor(Color.BLUE);
+        canvas.drawPath(mPath,p);
+//        //画弧线（截取圆或者椭圆的一部分）
+//        RectF rectF = new RectF(10,10,600,600);
+//        mPath.arcTo(rectF,0,90);
+//        Paint pain = new Paint();
+//        pain.setColor(Color.GREEN);
+//        canvas.drawPath(mPath,pain);
     }
 
     @Override
