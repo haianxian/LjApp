@@ -12,6 +12,7 @@ import com.lj.app.R;
 import com.lj.app.sensor.ImageGrivitySensorActivity;
 import com.lj.app.view.BezierView.SecondBezierActivity;
 import com.lj.app.view.loadingview.LoadingViewActivity;
+import com.lj.app.view.rv.RViewHorizonTest;
 import com.lj.app.view.scaleview.ViewScaleActiivty;
 
 /**
@@ -32,6 +33,7 @@ public class AnimationActivity extends AppCompatActivity{
     Button loadViewBtn;
     Button bezierViewBtn;
     Button scaleViewBtn;
+    Button recyclerViewHorizon;
     public static void open(Context context){
         Intent it = new Intent(context,AnimationActivity.class);
         context.startActivity(it);
@@ -58,6 +60,7 @@ public class AnimationActivity extends AppCompatActivity{
         loadViewBtn = findViewById(R.id.loadview_view_btn);
         bezierViewBtn = findViewById(R.id.bezier_view_btn);
         scaleViewBtn = findViewById(R.id.view_point_scale_btn);
+        recyclerViewHorizon = findViewById(R.id.recyclerView_hor_show);
     }
 
     private void setView(){
@@ -132,6 +135,12 @@ public class AnimationActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 ViewScaleActiivty.open(AnimationActivity.this);
+            }
+        });
+        recyclerViewHorizon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RViewHorizonTest.open(AnimationActivity.this);
             }
         });
     }

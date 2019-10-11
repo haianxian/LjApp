@@ -73,6 +73,12 @@
                 android:text="view为瞄点收起动画"
                 android:layout_height="wrap_content"
                 />
+            <Button
+                android:id="@+id/recyclerView_hor_show"
+                android:layout_width="wrap_content"
+                android:text="RecyclerView横向一屏幕显示4个"
+                android:layout_height="wrap_content"
+                />
         </LinearLayout>
     </ScrollView>
 
